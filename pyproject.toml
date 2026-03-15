@@ -1,0 +1,15 @@
+[project]
+name = "iot-cloud-security"
+version = "0.1.0"
+description = "IoT-cloud security"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "black>=26.3.1",
+]
+
+[tool.uv]
+package = false
+
+[tool.black]
+target-version = ["py311"]
