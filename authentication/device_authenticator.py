@@ -9,8 +9,6 @@ from typing import Callable
 from .errors import AuthenticationError, InvalidResponseError, ReplayAttackError
 from .models import AuthenticationResponse, Challenge
 
-# logique principale
-
 
 def generate_shared_key(size: int = 32) -> bytes:
     """Return a random shared key."""
@@ -21,7 +19,6 @@ def generate_shared_key(size: int = 32) -> bytes:
 
 
 class IoTDeviceAuthenticator:
-
     def __init__(
         self,
         device_id: str,
@@ -44,8 +41,6 @@ class IoTDeviceAuthenticator:
         self._pending_challenges: dict[str, Challenge] = {}
 
     def create_challenge(self, receiver_id: str) -> Challenge:
-        """Create a challenge for another device."""
-
         challenge = Challenge(
             sender_id=self.device_id,
             receiver_id=receiver_id,
@@ -56,8 +51,6 @@ class IoTDeviceAuthenticator:
         return challenge
 
     def answer_challenge(self, challenge: Challenge) -> AuthenticationResponse:
-        """Validate a challenge and produce the HMAC-based response."""
-
         self._validate_challenge(challenge)
         self._seen_challenges.add((challenge.sender_id, challenge.nonce))
 
@@ -74,8 +67,6 @@ class IoTDeviceAuthenticator:
         challenge: Challenge,
         response: AuthenticationResponse,
     ) -> bool:
-        """Check that the response matches the pending challenge."""
-
         stored_challenge = self._pending_challenges.get(challenge.nonce)
         if stored_challenge != challenge:
             raise InvalidResponseError("unknown or already used challenge")

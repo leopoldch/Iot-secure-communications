@@ -1,5 +1,3 @@
-"""Simple shared-key mutual authentication helpers for the IoT exercise."""
-
 from .device_authenticator import IoTDeviceAuthenticator, generate_shared_key
 from .errors import (
     AuthenticationError,

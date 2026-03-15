@@ -20,3 +20,11 @@ uv run python -m unittest discover -s tests -v
 ```bash
 uv run python run_phase1_mutual_authentication_demo.py
 ```
+
+## Run the cryptography scripts
+
+```bash
+uv run python cryptography/aes.py
+uv run python cryptography/rsa.py
+uv run python cryptography/signature.py
+```

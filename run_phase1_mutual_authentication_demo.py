@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from iot_cloud_security.authentication import (
-    AuthenticationError,
+from authentication import (
     InvalidResponseError,
     IoTDeviceAuthenticator,
     ReplayAttackError,
